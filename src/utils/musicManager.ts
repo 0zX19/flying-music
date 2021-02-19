@@ -22,13 +22,13 @@ export default class musicManager {
         const serverQueue = msg.guild?.queue
         const seekTime = updateFilters ? serverQueue.connection.dispatcher.streamTime + serverQueue.additionalStreamTime : undefined!
         if(!song) {
-            await serverQueue.voiceChannel.leave();
-            msg.guild!.queue = null
-            const embed = this.client.util.embed()
-            .setTitle("Ran Out Of Song")
-            .setColor(this.client.util.color)
-            .setDescription("We've run out of songs! Better queue up some tunes.")
-            return serverQueue.textChannel.send(embed)
+//             await serverQueue.voiceChannel.leave();
+//             msg.guild!.queue = null
+//             const embed = this.client.util.embed()
+//             .setTitle("Ran Out Of Song")
+//             .setColor(this.client.util.color)
+//             .setDescription("We've run out of songs! Better queue up some tunes.")
+//             return serverQueue.textChannel.send(embed)
           } 
     if(song.http) return this.playHttp(song, msg);
      
@@ -85,11 +85,11 @@ export default class musicManager {
         .setDescription(`▶ **Start Playing :**\n[${song.title}](${song.url})\n\`[${song.durationFormatted}]\` [${song.requester}]`)
         .setColor(this.client.util.color)
         const playingMessage = await serverQueue.textChannel.send(embed);
-        await playingMessage.react("⏭");
-        await playingMessage.react("⏸");
-        await playingMessage.react("▶");
-        await playingMessage.react("🔁");
-        await playingMessage.react("⏹");
+//         await playingMessage.react("⏭");
+//         await playingMessage.react("⏸");
+//         await playingMessage.react("▶");
+//         await playingMessage.react("🔁");
+//         await playingMessage.react("⏹");
 
         const filter = (reaction: any, user: User) => user.id === song.requester.id;
         const collector = playingMessage.createReactionCollector(filter, {
@@ -173,13 +173,13 @@ export default class musicManager {
       const serverQueue = msg.guild?.queue
 
       if(!song) {
-        await serverQueue.voiceChannel.leave();
-        msg.guild!.queue = null
-        const embed = this.client.util.embed()
-        .setTitle("Ran Out Of Song")
-        .setColor(this.client.util.color)
-        .setDescription("We've run out of songs! Better queue up some tunes.")
-        return serverQueue.textChannel.send(embed)
+//         await serverQueue.voiceChannel.leave();
+//         msg.guild!.queue = null
+//         const embed = this.client.util.embed()
+//         .setTitle("Ran Out Of Song")
+//         .setColor(this.client.util.color)
+//         .setDescription("We've run out of songs! Better queue up some tunes.")
+//         return serverQueue.textChannel.send(embed)
       } 
       const dispatcher = serverQueue.connection
      .play(song.url, { 
@@ -208,11 +208,11 @@ export default class musicManager {
   .setImage(song.thumbnail)
   .setColor(this.client.util.color)
   const playingMessage = await serverQueue.textChannel.send(embed);
-        await playingMessage.react("⏭");
-        await playingMessage.react("⏸");
-        await playingMessage.react("▶");
-        await playingMessage.react("🔁");
-        await playingMessage.react("⏹");
+//         await playingMessage.react("⏭");
+//         await playingMessage.react("⏸");
+//         await playingMessage.react("▶");
+//         await playingMessage.react("🔁");
+//         await playingMessage.react("⏹");
         
         const filter = (reaction: any, user: User) => user.id === song.requester.id;
         const collector = playingMessage.createReactionCollector(filter, {
